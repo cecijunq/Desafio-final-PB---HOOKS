@@ -78,6 +78,7 @@ const Questions = () => {
 
             <div>
                 <p>{category}</p>
+                <p>{category}</p>
                 <p>{difficulty}</p>
                 <p>{questions}</p>
 
