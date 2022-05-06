@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 
 const Start = () => {
     const [page, setPage] = useState([]);
@@ -17,16 +17,16 @@ const Start = () => {
 
     return (
         <>
-                <h2>Welcome</h2>
+            <h2>Welcome</h2>
            
-                <p>This is Pingback Trivia Game</p>
+            <p>This is Pingback Trivia Game</p>
  
-                <p>You will receive 10 questions. Can you answer all right?</p>
+            <p>You will receive 10 questions. Can you answer all right?</p>
  
-                <p>When you are ready, click on the button below</p>
+            <p>When you are ready, click on the button below</p>
  
-                <button onClick={() => handleChangingPage('/questions')}>START</button>
-            </>
+            <button onClick={() => handleChangingPage('/questions')}>START</button>
+        </>
     )
 }
 
