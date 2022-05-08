@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import "../style/styles.scss";
+
 const Start = () => {
     const [page, setPage] = useState([]);
 
@@ -11,17 +13,19 @@ const Start = () => {
     };
 
     return (
-        <>
+        <div className="container">
             <h2>Welcome</h2>
            
-            <p>This is Pingback Trivia Game</p>
- 
-            <p>You will receive 10 questions. Can you answer all right?</p>
- 
-            <p>When you are ready, click on the button below</p>
- 
-            <button onClick={handleChangingPage}>START</button>
-        </>
+           <div className="intro">
+                <p>This is Pingback Trivia Game</p>
+    
+                <p>You will receive 10 questions. Can you answer all right?</p>
+    
+                <p>When you are ready, click on the button below</p>
+    
+                <button className="btn_start" onClick={handleChangingPage}>START</button>
+           </div>
+        </div>
     )
 }
 

@@ -76,7 +76,7 @@ const Questions = () => {
 
             
 
-            <div>
+            <div className="details_quest">
                 <p>{category}</p>
                 <p>{difficulty}</p>
                 <p>{questions}</p>
