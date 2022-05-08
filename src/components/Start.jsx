@@ -7,13 +7,8 @@ const Start = () => {
     const history = useHistory();
     const handleChangingPage = path => {
         console.log("changing the website page");
-        history.push(path);
+        history.push('/questions');
     };
-
-    // const handleChangingPage = () => {
-    //     console.log("changing the website page");
-    //     this.props.history.push('/questions');
-    // }
 
     return (
         <>
@@ -25,7 +20,7 @@ const Start = () => {
  
             <p>When you are ready, click on the button below</p>
  
-            <button onClick={() => handleChangingPage('/questions')}>START</button>
+            <button onClick={handleChangingPage}>START</button>
         </>
     )
 }
