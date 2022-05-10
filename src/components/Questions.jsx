@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Results from "./Result";
 
 const Questions = () => {
+    const history = useHistory();
 
     //creating the states
     const [results, setResults] = useState({})
@@ -34,15 +36,24 @@ const Questions = () => {
 
     const handleNextQuestion = () => {
         console.log("moving to the next question");
+        console.log("questionIndex", questionIndex);
+        console.log("questionNumber", questionNumber);
 
         console.log(questionIndex + 1);
+        
+        if(questionNumber === 10){
+            console.log("changing to results page");
+            
+            // const handleChangingPage = path => {
+            //     console.log("changing the website page");
+            //     history.push('/results');
+            // };
+
+            history.push('/results');
+            return;
+        }
         setQuestNumb(questionNumber + 1)
         setQuestIndex(questionIndex + 1)
-
-        if(questionIndex == 9){
-            console.log("changing to results page");
-
-        }
     }
 
 
