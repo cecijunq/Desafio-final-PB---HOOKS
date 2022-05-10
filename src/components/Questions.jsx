@@ -34,7 +34,37 @@ const Questions = () => {
 
 
 
-    const handleNextQuestion = () => {
+    /*const handleNextQuestion = () => {
+        console.log("moving to the next question");
+        console.log("questionIndex", questionIndex);
+        console.log("questionNumber", questionNumber);
+
+        console.log(questionIndex + 1);
+        
+        if(questionNumber === 10){
+            console.log("changing to results page");
+            
+            // const handleChangingPage = path => {
+            //     console.log("changing the website page");
+            //     history.push('/results');
+            // };
+
+            history.push('/results');
+            return;
+        }
+        setQuestNumb(questionNumber + 1)
+        setQuestIndex(questionIndex + 1)
+    }*/
+
+
+    const handleTrueAns = () => {
+        if(correctAns == 'True'){
+            setSocre(score + 1)
+            alert("Yayy well done! You got it right! Let's go =)")
+        } else {
+            alert("Ohh bad luck! Good luck next time...")
+        }
+
         console.log("moving to the next question");
         console.log("questionIndex", questionIndex);
         console.log("questionNumber", questionNumber);
@@ -56,16 +86,7 @@ const Questions = () => {
         setQuestIndex(questionIndex + 1)
     }
 
-
-    const handleTrueAns = () => {
-        if(correctAns == 'True'){
-            setSocre(score + 1)
-            alert("Yayy well done! You got it right! Let's go =)")
-        } else {
-            alert("Ohh bad luck! Good luck next time...")
-        }
-    }
-
+    
 
     const handleFalseAns = () => {
         if(correctAns == 'False'){
@@ -74,6 +95,26 @@ const Questions = () => {
         }else{
             alert("Ohh bad luck! Good luck next time...")
         }
+
+        console.log("moving to the next question");
+        console.log("questionIndex", questionIndex);
+        console.log("questionNumber", questionNumber);
+
+        console.log(questionIndex + 1);
+        
+        if(questionNumber === 10){
+            console.log("changing to results page");
+            
+            // const handleChangingPage = path => {
+            //     console.log("changing the website page");
+            //     history.push('/results');
+            // };
+
+            history.push('/results');
+            return;
+        }
+        setQuestNumb(questionNumber + 1)
+        setQuestIndex(questionIndex + 1)
     }
 
     //console.log(results);
@@ -98,7 +139,7 @@ const Questions = () => {
 
             </div>
             
-            <button onClick={() => handleNextQuestion('/results')}>Next question</button>
+            {/* <button onClick={() => handleNextQuestion('/results')}>Next question</button> */}
         </div>
 
         
