@@ -20,7 +20,7 @@ const Start = () => {
            <div className="intro">
                 <p>This is Pingback Trivia Game</p>
     
-                <p>You will receive 10 questions. Can you answer all right?</p>
+                <p>You will receive 10 questions. Can you answer them correctly?</p>
     
                 <p>When you are ready, click on the button below</p>
     

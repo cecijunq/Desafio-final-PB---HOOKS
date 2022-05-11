@@ -10,12 +10,11 @@ import Results from "./components/Result";
 function App() {
   return (
     <Router>
-      {/* <Switch> */}
-
-      <Route exact path="/questions"><Questions /></Route>
-      <Route exact path="/results"> <Results /> </Route>
-      <Route exact path="/"><Start /></Route>
-      {/* </Switch> */}
+      <Switch>
+        <Route exact path="/" component={Start}></Route>
+        <Route path="/questions" component={Questions}></Route>
+        <Route path="/results" component={Results}></Route>
+      </Switch>
     </Router>
   );
 }
