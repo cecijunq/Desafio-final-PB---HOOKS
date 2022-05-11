@@ -7,8 +7,6 @@ const Questions = () => {
     const history = useHistory();
 
     //creating the states
-    const [results, setResults] = useState({})
-    const [currentResult, setCurrentResult] = useState([0])
     const [questions, setQuestions] = useState([]);
     const [category, setCategory] = useState([]);
     const [difficulty, setDifficulty] = useState([]);
@@ -16,14 +14,13 @@ const Questions = () => {
     const [questionIndex, setQuestIndex] = useState(0);
     const [score, setSocre] = useState(0);
     const [questionNumber, setQuestNumb] = useState(1);
-    const [page, setPage] = useState(<Questions/>);
+    const [counter, setCounter] = useState(0);
+    const [counterMin, setCounterMin] = useState(0);
 
 
 
     useEffect(() => {
         axios.get("https://opentdb.com/api.php?amount=10&type=boolean").then(({data}) => {
-            setResults(data.results)
-            setCurrentResult(data.results[0])
             setQuestions(data.results[0].question)
             // setQuestion(data.results[0])
             setCategory(data.results[0].category)
@@ -33,33 +30,33 @@ const Questions = () => {
     }, [questionNumber]);
 
 
+    //setting the timer of seconds
+    useEffect(() => {
+        counter >= 0 && counter < 60 && setInterval(() => {
+            setCounter((time) => time + 1);
+        }, 1000);
+    }, []);
 
-    /*const handleNextQuestion = () => {
-        console.log("moving to the next question");
-        console.log("questionIndex", questionIndex);
-        console.log("questionNumber", questionNumber);
-
-        console.log(questionIndex + 1);
+    useEffect(() => {
+        counterMin >= 0 && setInterval(() => {
+            setCounterMin((time) => time + 1);
+        }, 60000);
         
-        if(questionNumber === 10){
-            console.log("changing to results page");
-            
-            // const handleChangingPage = path => {
-            //     console.log("changing the website page");
-            //     history.push('/results');
-            // };
+    }, []);
 
-            history.push('/results');
-            return;
-        }
-        setQuestNumb(questionNumber + 1)
-        setQuestIndex(questionIndex + 1)
-    }*/
+
 
 
     const handleTrueAns = () => {
         if(correctAns == 'True'){
-            setSocre(score + 1)
+            if(difficulty == 'hard') {
+                setSocre(score + 3)
+            }else if(difficulty == 'medium') {
+                setSocre(score + 2)
+            }else {
+                setSocre(score + 1)
+            }
+
             alert("Yayy well done! You got it right! Let's go =)")
         } else {
             alert("Ohh bad luck! Good luck next time...")
@@ -73,12 +70,6 @@ const Questions = () => {
         
         if(questionNumber === 10){
             console.log("changing to results page");
-            
-            // const handleChangingPage = path => {
-            //     console.log("changing the website page");
-            //     history.push('/results');
-            // };
-
             history.push('/results');
             return;
         }
@@ -104,12 +95,6 @@ const Questions = () => {
         
         if(questionNumber === 10){
             console.log("changing to results page");
-            
-            // const handleChangingPage = path => {
-            //     console.log("changing the website page");
-            //     history.push('/results');
-            // };
-
             history.push('/results');
             return;
         }
@@ -137,9 +122,9 @@ const Questions = () => {
                 <button onClick={handleTrueAns}>True</button>
                 <button onClick={handleFalseAns}>False</button>
 
+                <p>Timer: {counterMin}:{counter}</p>
             </div>
             
-            {/* <button onClick={() => handleNextQuestion('/results')}>Next question</button> */}
         </div>
 
         

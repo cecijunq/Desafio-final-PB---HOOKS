@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import "../style/styles.scss";
 
 const Start = () => {
-    const [page, setPage] = useState([]);
 
     const history = useHistory();
     const handleChangingPage = path => {
