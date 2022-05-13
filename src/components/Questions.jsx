@@ -35,6 +35,9 @@ const Questions = () => {
         counter >= 0 && counter < 60 && setInterval(() => {
             setCounter((time) => time + 1);
         }, 1000);
+        if(counter == 60) {
+            setCounter(time = 0);
+        }
     }, []);
 
     useEffect(() => {

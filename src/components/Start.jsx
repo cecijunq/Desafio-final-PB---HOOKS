@@ -9,7 +9,6 @@ const Start = () => {
     const handleChangingPage = path => {
         console.log("changing the website page");
         history.push('/questions');
-        console.log("changing the website page AFTER");
     };
 
     return (
