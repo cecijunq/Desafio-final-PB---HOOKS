@@ -12,11 +12,11 @@ const Questions = () => {
     const [difficulty, setDifficulty] = useState([]);
     const [correctAns, setCorrectAns] = useState([]);
     const [questionIndex, setQuestIndex] = useState(0);
-    const [score, setSocre] = useState(0);
+    const [score, setScore] = useState(0);
     const [questionNumber, setQuestNumb] = useState(1);
     const [counter, setCounter] = useState(0);
     const [counterMin, setCounterMin] = useState(0);
-
+    const [finalScore, setFinalScore] = useState([]);
 
 
     useEffect(() => {
@@ -53,16 +53,18 @@ const Questions = () => {
     const handleTrueAns = () => {
         if(correctAns == 'True'){
             if(difficulty == 'hard') {
-                setSocre(score + 3)
+                setScore(score + 3)
             }else if(difficulty == 'medium') {
-                setSocre(score + 2)
+                setScore(score + 2)
             }else {
-                setSocre(score + 1)
+                setScore(score + 1)
             }
 
             alert("Yayy well done! You got it right! Let's go =)")
+            setFinalScore([...finalScore, 'true']);
         } else {
             alert("Ohh bad luck! Good luck next time...")
+            setFinalScore([...finalScore, 'false']);
         }
 
         console.log("moving to the next question");
@@ -84,10 +86,11 @@ const Questions = () => {
 
     const handleFalseAns = () => {
         if(correctAns == 'False'){
-            setSocre(score + 1)
-            alert("Yayy well done! You got it right! Let's go =)")
+            setFinalScore([...finalScore, 'false']);
+            alert("Yayy well done! You got it right! Let's go =)");
         }else{
-            alert("Ohh bad luck! Good luck next time...")
+            alert("Ohh bad luck! Good luck next time...");
+            setFinalScore([...finalScore, 'true']);
         }
 
         console.log("moving to the next question");
@@ -105,6 +108,7 @@ const Questions = () => {
         setQuestIndex(questionIndex + 1)
     }
 
+    console.log(finalScore);
     //console.log(results);
     // console.log(questions, category, difficulty);
     console.log(correctAns);
