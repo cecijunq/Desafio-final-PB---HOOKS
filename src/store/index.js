@@ -1,7 +1,8 @@
-import { createStore } from 'redux';
+//é nesse arquivo onde criamos o store
+
 import {score} from './reducers';
+import { createStore } from 'redux';
 
-const store = createStore(rootReducer); //está criando o store
-
+const store = createStore(score); //está criando o store
 
 export default store;

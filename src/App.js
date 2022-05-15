@@ -11,7 +11,7 @@ import Results from "./components/Result";
 
 function App() {
   return (
-    <Provider>
+    <Provider store={store}>
       <Router>
         <Route exact path="/" component={Start}></Route>
         <Route path="/questions" component={Questions}></Route>
@@ -25,4 +25,4 @@ export default App;
 
 
 //useSelector: pega o estado e pega state.
-///Provider: é o que possibilita que todos os componentes filhos escutem o estado e, logo, as mudanças que ocorreram nele
+///Provider: é o componente que recebe a store e a passa, automaticamente, para todos os filhos, possibilitando que eles a escutem
