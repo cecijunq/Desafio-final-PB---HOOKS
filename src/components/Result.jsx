@@ -1,8 +1,16 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+
+import {changeScore} from '../store/actions';
+
 import Questions from "./Questions";
 
 const Results = (props) => {
+
+    //const resultsFinal = useSelector(state => state.score); //é o escutador do estado global
+    //const dispatch = useDispatch();
+
     const history = useHistory();
 
     const handlePlayAgain = () => {
@@ -10,6 +18,7 @@ const Results = (props) => {
         history.push('/');
         return;
     }
+
 
     return (
         <div>

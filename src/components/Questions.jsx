@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {changeScore} from '../store/actions';
+
 import axios from "axios";
 import Results from "./Result";
 
 const Questions = () => {
+
+    // const resultsFinal = useSelector(state => state.score); //é o escutador do estado global
+    // const dispatch = useDispatch();
+
+    // const handleChangeFinalScore = (text) => {
+    //     dispatch(changeScore(text));
+    // }
+
     const history = useHistory();
 
     //creating the states
@@ -50,7 +61,7 @@ const Questions = () => {
 
 
 
-    const handleTrueAns = () => {
+    const handleTrueAns = (text) => {
         if(correctAns == 'True'){
             if(difficulty == 'hard') {
                 setScore(score + 3)
@@ -80,11 +91,14 @@ const Questions = () => {
         }
         setQuestNumb(questionNumber + 1)
         setQuestIndex(questionIndex + 1)
+
+
+        //dispatch(changeScore(text));
     }
 
-    
 
-    const handleFalseAns = () => {
+
+    const handleFalseAns = (text) => {
         if(correctAns == 'False'){
             setFinalScore([...finalScore, 'false']);
             alert("Yayy well done! You got it right! Let's go =)");
@@ -106,33 +120,35 @@ const Questions = () => {
         }
         setQuestNumb(questionNumber + 1)
         setQuestIndex(questionIndex + 1)
+
+
+        //dispatch(changeScore(text));
     }
 
-    console.log(finalScore);
-    //console.log(results);
-    // console.log(questions, category, difficulty);
+    
     console.log(correctAns);
+
 
     return (
         <div>
-            <h2>Question: {questionNumber} / 10</h2>
-            <h3>Score: {score}</h3>
+                <h2>Question: {questionNumber} / 10</h2>
+                <h3>Score: {score}</h3>
 
+                
+
+                <div className="details_quest">
+                    <p>{category}</p>
+                    <p>{difficulty}</p>
+                    <p>{questions}</p>
+
+
+                    <button onClick={handleTrueAns}>True</button>
+                    <button onClick={handleFalseAns}>False</button>
+
+                    <p>Timer: {counterMin}:{counter}</p>
+                </div>
             
-
-            <div className="details_quest">
-                <p>{category}</p>
-                <p>{difficulty}</p>
-                <p>{questions}</p>
-
-
-                <button onClick={handleTrueAns}>True</button>
-                <button onClick={handleFalseAns}>False</button>
-
-                <p>Timer: {counterMin}:{counter}</p>
             </div>
-            
-        </div>
 
         
     )
