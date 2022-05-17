@@ -3,7 +3,7 @@ export const changeScore = (finalScore) => {
 }
 
 export const registerAnswers = (answers) => {
-    return {type: 'change_answers', payload: {answers: answers}}
+    return {type: 'add_answer', payload: {answers: answers}}
 }
 
 export const registerAnswer = (answer) => {

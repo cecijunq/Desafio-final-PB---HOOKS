@@ -6,6 +6,8 @@ import { changeScore, registerAnswers, registerAnswer, changeMinutes, changeSeco
 import axios from "axios";
 import Results from "./Result";
 
+import "../style/styles.scss";
+
 const Questions = () => {
 
     const finalScore = useSelector(state => state.finalScore); //é o escutador do estado global
@@ -75,12 +77,12 @@ const Questions = () => {
             }
         
             alert("Yayy well done! You got it right! Let's go =)");
-            //dispatch(registerAnswer("True"));
+            dispatch(registerAnswers("True"));
             //dispatch(registerAnswers(registerAnswer));
             dispatch(changeScore(finalScore + 1));
         } else {
             alert("Ohh bad luck! Good luck next time...");
-            //dispatch(registerAnswer("False"));
+            dispatch(registerAnswers("False"));
             //dispatch(registerAnswers(registerAnswer));
         }
 
@@ -93,7 +95,7 @@ const Questions = () => {
         if(questionNumber === 10){
             console.log("changing to results page");
             history.push('/results');
-            //console.log({answers});
+            console.log([answers]);
             return;
         }
         setQuestNumb(questionNumber + 1)
@@ -115,11 +117,11 @@ const Questions = () => {
 
             alert("Yayy well done! You got it right! Let's go =)");
             dispatch(changeScore(finalScore + 1));
-            //dispatch(registerAnswer("False"));
+            dispatch(registerAnswers("False"));
             //dispatch(registerAnswers(registerAnswer));
         }else{
             alert("Ohh bad luck! Good luck next time...");
-            //dispatch(registerAnswer("True"));
+            dispatch(registerAnswers("True"));
             //dispatch(registerAnswers(registerAnswer));
         }
 
@@ -133,6 +135,7 @@ const Questions = () => {
             console.log("changing to results page");
             history.push('/results');
             //console.log({answers});
+            console.log([answers]);
             return;
         }
         setQuestNumb(questionNumber + 1)
@@ -146,24 +149,28 @@ const Questions = () => {
 
     return (
         <div>
+            <div className="container">
                 <h2>Question: {questionNumber} / 10</h2>
-                <h3>Score: {score}</h3>
+                <h3 className="score">Score: {score}</h3>
+            </div>
 
                 
 
-                <div className="details_quest">
-                    <p>{category}</p>
-                    <p>{difficulty}</p>
-                    <p>{questions}</p>
+            <div className="details_quest">
+                <p>{category}</p>
+                <p>{difficulty}</p>
+                <p>{questions}</p>
 
 
-                    <button onClick={handleTrueAns}>True</button>
-                    <button onClick={handleFalseAns}>False</button>
-
+                <div className="btn_ans">
+                    <button className="btn_Answer" onClick={handleTrueAns}>True</button>
+                    <button className="btn_Answer" onClick={handleFalseAns}>False</button>
                     <p>Timer: {minutesCounter}:{secondsCounter}</p>
                 </div>
-            
+
             </div>
+            
+        </div>
 
         
     )
