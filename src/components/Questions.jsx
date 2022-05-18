@@ -31,15 +31,24 @@ const Questions = () => {
     const [minutesCounter, setMinutesCounter] = useState(0);
 
 
-
-    useEffect(() => {
-
-        axios.get("https://opentdb.com/api.php?amount=10&type=boolean").then(({data}) => {
+    const axiosData = async () => {
+        const datas = await axios.get("https://opentdb.com/api.php?amount=10&type=boolean").then(({data}) => {
             setQuestions(data.results[0].question)
             setCategory(data.results[0].category)
             setDifficulty(data.results[0].difficulty)
             setCorrectAns(data.results[0].correct_answer)
         });
+    };
+
+    useEffect(() => {
+
+        // axios.get("https://opentdb.com/api.php?amount=10&type=boolean").then(({data}) => {
+        //     setQuestions(data.results[0].question)
+        //     setCategory(data.results[0].category)
+        //     setDifficulty(data.results[0].difficulty)
+        //     setCorrectAns(data.results[0].correct_answer)
+        // });
+        axiosData();
     }, [questionNumber]);
 
 
