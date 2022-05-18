@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { changeScore, registerAnswers, registerAnswer, changeMinutes, changeSeconds } from '../store/actions';
+import { changeScore, registerAnswers, changeMinutes, changeSeconds } from '../store/actions';
 
 import axios from "axios";
 import Results from "./Result";
@@ -10,17 +10,12 @@ import "../style/styles.scss";
 
 const Questions = () => {
 
-    const finalScore = useSelector(state => state.finalScore); //é o escutador do estado global
-    const answers = useSelector(state => state.answers);
-    const answer = useSelector(state => state.answer);
-    const seconds = useSelector(state => state.seconds);
-    const minutes = useSelector(state => state.minutes);
+    const finalScore = useSelector(state => state.score.finalScore); //é o escutador do estado global
+    const seconds = useSelector(state => state.score.seconds);
+    const minutes = useSelector(state => state.score.minutes);
+    const answers = useSelector(state => state.answer.answers);
 
-    const dispatch = useDispatch(changeScore(), registerAnswers(), registerAnswer(), changeMinutes(), changeSeconds());
-
-    // const handleChangeFinalScore = (text) => {
-    //     dispatch(changeScore(text));
-    // }
+    const dispatch = useDispatch(changeScore(), registerAnswers(), changeMinutes(), changeSeconds());
 
     const history = useHistory();
 
@@ -34,10 +29,11 @@ const Questions = () => {
     const [questionNumber, setQuestNumb] = useState(1);
     const [secondsCounter, setSecondsCounter] = useState(0);
     const [minutesCounter, setMinutesCounter] = useState(0);
-    //const [finalScore, setFinalScore] = useState([]);
+
 
 
     useEffect(() => {
+
         axios.get("https://opentdb.com/api.php?amount=10&type=boolean").then(({data}) => {
             setQuestions(data.results[0].question)
             setCategory(data.results[0].category)
@@ -77,13 +73,13 @@ const Questions = () => {
             }
         
             alert("Yayy well done! You got it right! Let's go =)");
-            dispatch(registerAnswers("True"));
-            //dispatch(registerAnswers(registerAnswer));
             dispatch(changeScore(finalScore + 1));
+
+            dispatch(registerAnswers("True"));
         } else {
             alert("Ohh bad luck! Good luck next time...");
+
             dispatch(registerAnswers("False"));
-            //dispatch(registerAnswers(registerAnswer));
         }
 
         console.log("moving to the next question");
@@ -95,7 +91,6 @@ const Questions = () => {
         if(questionNumber === 10){
             console.log("changing to results page");
             history.push('/results');
-            console.log([answers]);
             return;
         }
         setQuestNumb(questionNumber + 1)
@@ -117,12 +112,12 @@ const Questions = () => {
 
             alert("Yayy well done! You got it right! Let's go =)");
             dispatch(changeScore(finalScore + 1));
+
             dispatch(registerAnswers("False"));
-            //dispatch(registerAnswers(registerAnswer));
         }else{
             alert("Ohh bad luck! Good luck next time...");
+
             dispatch(registerAnswers("True"));
-            //dispatch(registerAnswers(registerAnswer));
         }
 
         console.log("moving to the next question");
@@ -134,8 +129,6 @@ const Questions = () => {
         if(questionNumber === 10){
             console.log("changing to results page");
             history.push('/results');
-            //console.log({answers});
-            console.log([answers]);
             return;
         }
         setQuestNumb(questionNumber + 1)

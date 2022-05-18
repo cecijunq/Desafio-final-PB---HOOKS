@@ -1,9 +1,9 @@
 //é nesse arquivo onde criamos o store
 
-import {score} from './reducers';
+import {score, finalAns} from './reducers';
 import { createStore, combineReducers } from 'redux';
 
-// const reducers = combineReducers(score: finalScore, )
-const store = createStore(score); //está criando o store
+    const reducers = combineReducers({score: score, answer: finalAns}) //ao usar o combineReducers, deve definir um nome ao estado
+const store = createStore(reducers); //está criando o store
 
 export default store;

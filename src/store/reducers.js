@@ -1,10 +1,7 @@
-import axios from "axios"
-
 const INIT_STATE = {
     finalScore: 0,
     seconds: 0,
     minutes: 0,
-    answers: []
 }
 //o reducer precisa receber um estado inicial e uma ação
 export const score = (state = INIT_STATE, action) => {
@@ -15,11 +12,20 @@ export const score = (state = INIT_STATE, action) => {
             return{...state, seconds: action.payload.seconds}
         case 'set_minutes':
             return{...state, seconds: action.payload.minutes}
+        default:
+            return{...state};
+    }
+}
+
+
+const ADD_ANSWER = {
+    answers: []
+}
+
+export const finalAns = ( state = ADD_ANSWER, action) => {
+    switch(action.type) {
         case 'add_answer':
-            return {
-                ...state, 
-                answers: state.answers.concat(action.newItem)
-            }
+            return{...state, answers: [...state.answers, action.answer]}
         default:
             return{...state};
     }

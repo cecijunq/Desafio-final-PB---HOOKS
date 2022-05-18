@@ -8,11 +8,10 @@ import Questions from "./Questions";
 
 const Results = () => {
 
-    const finalScore = useSelector(state => state.finalScore);
-    const answers = useSelector(state => state.answers);
-    const answer = useSelector(state => state.answer);
-    const seconds = useSelector(state => state.seconds);
-    const minutes = useSelector(state => state.minutes);
+    const finalScore = useSelector(state => state.score.finalScore); //é o escutador do estado global
+    const seconds = useSelector(state => state.score.seconds);
+    const minutes = useSelector(state => state.score.minutes);
+    const answers = useSelector(state => state.answer.answers);
 
     const dispatch = useDispatch(changeScore(), registerAnswers(), changeMinutes(), changeSeconds());
 
@@ -28,6 +27,7 @@ const Results = () => {
         return;
     }
 
+    console.log(answers);
 
     return (
         <div className="container">

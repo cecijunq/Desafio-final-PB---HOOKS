@@ -6,10 +6,6 @@ export const registerAnswers = (answers) => {
     return {type: 'add_answer', payload: {answers: answers}}
 }
 
-export const registerAnswer = (answer) => {
-    return {type: 'change_answer', payload: {answer: answer}}
-}
-
 export const changeSeconds = (seconds) => {
     return {type: 'set_seconds', payload: {seconds: seconds}}
 }
