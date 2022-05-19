@@ -60,6 +60,8 @@ const Questions = () => {
         }, 1000);
     }, [secondsCounter]);
 
+
+    //setting the timer of minutes
     useEffect(() => {
         if(secondsCounter == 60) {
             setSecondsCounter(0);
@@ -69,6 +71,16 @@ const Questions = () => {
     }, [secondsCounter, minutesCounter]);
 
 
+    // useEffect(() => {
+    //     let TrueBtn = document.querySelector("#btn_True");
+    //     let FalseBtn = document.querySelector("#btn_False");
+
+    //     if(TrueBtn.onClick){
+    //         dispatch(registerAnswers("True"));
+    //     }else if(FalseBtn.onClick){
+    //         dispatch(registerAnswers("False"));
+    //     }
+    // }, [questions]);
 
 
     const handleTrueAns = () => {
@@ -165,8 +177,8 @@ const Questions = () => {
 
 
                 <div className="btn_ans">
-                    <button className="btn_Answer" onClick={handleTrueAns}>True</button>
-                    <button className="btn_Answer" onClick={handleFalseAns}>False</button>
+                    <button className="btn_Answer" id="btn_True" onClick={handleTrueAns}>True</button>
+                    <button className="btn_Answer" id="btn_False" onClick={handleFalseAns}>False</button>
                     <p>Timer: {minutesCounter}:{secondsCounter}</p>
                 </div>
 

@@ -40,6 +40,7 @@ const Results = () => {
 
             <div className="ans_chosen">
                 <h4>Answers Chosen:</h4>
+
                 <ol>
                     <li>{registerAnswers[0]}</li>
                     <li>{registerAnswers[1]}</li>
