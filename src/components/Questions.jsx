@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeScore, registerAnswers, changeMinutes, changeSeconds } from '../store/actions';
 
 import axios from "axios";
-import Results from "./Result";
 
 import "../style/styles.scss";
+
 
 const Questions = () => {
 
@@ -162,26 +162,32 @@ const Questions = () => {
 
 
     return (
-        <div>
-            <div className="container">
-                <h2>Question: {questionNumber} / 10</h2>
-                <h3 className="score">Score: {score}</h3>
-            </div>
+        <div className="screen">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+            </style>
 
-                
-
-            <div className="details_quest">
-                <p>{category}</p>
-                <p>{difficulty}</p>
-                <p>{questions}</p>
-
-
-                <div className="btn_ans">
-                    <button className="btn_Answer" id="btn_True" onClick={handleTrueAns}>True</button>
-                    <button className="btn_Answer" id="btn_False" onClick={handleFalseAns}>False</button>
-                    <p>Timer: {minutesCounter}:{secondsCounter}</p>
+            <div className="questions">
+                <div className="container">
+                    <h2>Question: {questionNumber} / 10</h2>
+                    <h3 className="score">Score: {score}</h3>
                 </div>
 
+                    
+
+                <div className="details_quest">
+                    <p>{category}</p>
+                    <p>{difficulty}</p>
+                    <p>{questions}</p>
+
+
+                    <div className="btn_ans">
+                        <button className="btn_Answer" id="btn_True" onClick={handleTrueAns}>True</button>
+                        <button className="btn_Answer" id="btn_False" onClick={handleFalseAns}>False</button>
+                        <p>Timer: {minutesCounter}:{secondsCounter}</p>
+                    </div>
+
+                </div>
             </div>
             
         </div>

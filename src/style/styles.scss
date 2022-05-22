@@ -1,13 +1,38 @@
 .container {
-    width: 60%;
+    width: 100%;
+    height: 100%;
     margin: auto;
-    padding: 20px;
+    padding: 2px;
     text-align: center;
     align-items: center;
+    font-family: 'Koulen';
+}
+
+.screen {
+    min-width: 100%;
+    min-height: 100%;
+    background-image: url('../../imgs/background img.jpg');
+    position: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
 }
 
 .container h2 {
     font-size: 30px;
+}
+
+.start {
+    margin-top: 150px;
+}
+
+.questions {
+    margin-top: 85px;
+}
+
+.results {
+    margin-top: 70px;
 }
 
 .intro {
@@ -19,7 +44,13 @@
     border-radius: 24px;
     margin: 20px;
     padding: 5px;
-    border: 1px solid rgb(191, 190, 190);
+    border: 1px solid #840463;
+    background-color: #840463;
+}
+
+.btn_start:hover, .btn_Answer:hover, .btn_playAgain:hover {
+    background-color: #af05b4;
+    border: 1px solid #af05b4;
 }
 
 .btn_Answer {
@@ -35,12 +66,14 @@
 }
 
 .details_quest {
-    margin-top: -40px;
-    width: 50%;
+    margin-top: -50px;
+    width: 60%;
     margin: auto;
-    padding: 20px;
+    padding: 0px;
     text-align: center;
     font-size: 25px;
+    font-family: 'Koulen';
+    // font-weight: 100;
 }
 
 .score {
@@ -51,14 +84,21 @@
     margin-top: 10px;
     width: 50%;
     margin: auto;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     font-size: 25px;
+    margin-top: -30px;
+}
+
+.ans_numb {
+    display: flex;
+    justify-content: space-between;
 }
 
 .ans_chosen {
-    width: 50%;
+    width: 30%;
     text-align: center;
     font-size: 25px;
     margin: auto;
+    margin-top: -40px;
 }
