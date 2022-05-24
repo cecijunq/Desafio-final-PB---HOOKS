@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -11,6 +11,8 @@ const Results = () => {
     const seconds = useSelector(state => state.score.seconds);
     const minutes = useSelector(state => state.score.minutes);
     const answers = useSelector(state => state.answer.answers);
+
+    //const [myAnswer, setMyAnswer] = useState(new Map());
 
     const dispatch = useDispatch(changeScore(), registerAnswers(), changeMinutes(), changeSeconds());
 
@@ -25,6 +27,12 @@ const Results = () => {
         history.push('/');
         return;
     }
+
+    // const mapAnswers = () => {
+    //     const updateMap = (k, v) => {
+    //         setMyAnswer (new Map(myAnswer.set(k, v)));
+    //     }
+    // }
 
     console.log(answers);
 
@@ -47,6 +55,12 @@ const Results = () => {
                         <h4>Answers Chosen:</h4>
 
                         <ol className="ans_numb">
+                            {/* {[...myAnswer.keys()].map(k => (
+                                <li>myAnswer.get(k)</li>
+                            ))} */}
+
+                            
+
                             <div className="resultPart1">
                                 <li>{registerAnswers[0]}</li>
                                 <li>{registerAnswers[1]}</li>

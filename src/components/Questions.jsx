@@ -15,7 +15,7 @@ const Questions = () => {
     const minutes = useSelector(state => state.score.minutes);
     const answers = useSelector(state => state.answer.answers);
 
-    const dispatch = useDispatch(changeScore(), registerAnswers(), changeMinutes(), changeSeconds());
+    const dispatch = useDispatch();
 
     const history = useHistory();
 
@@ -56,7 +56,7 @@ const Questions = () => {
     useEffect(() => {
         secondsCounter < 60 && setTimeout(() => {
             setSecondsCounter(secondsCounter + 1);
-            dispatch(changeSeconds(seconds + 1))
+            dispatch(changeSeconds(secondsCounter))
         }, 1000);
     }, [secondsCounter]);
 
@@ -66,21 +66,9 @@ const Questions = () => {
         if(secondsCounter == 60) {
             setSecondsCounter(0);
             setMinutesCounter(minutesCounter + 1);
-            dispatch(changeMinutes(minutes + 1));
+            dispatch(changeMinutes(minutesCounter));
         }
     }, [secondsCounter, minutesCounter]);
-
-
-    // useEffect(() => {
-    //     let TrueBtn = document.querySelector("#btn_True");
-    //     let FalseBtn = document.querySelector("#btn_False");
-
-    //     if(TrueBtn.onClick){
-    //         dispatch(registerAnswers("True"));
-    //     }else if(FalseBtn.onClick){
-    //         dispatch(registerAnswers("False"));
-    //     }
-    // }, [questions]);
 
 
     const handleTrueAns = () => {
@@ -96,12 +84,13 @@ const Questions = () => {
             alert("Yayy well done! You got it right! Let's go =)");
             dispatch(changeScore(finalScore + 1));
 
-            dispatch(registerAnswers("True"));
+            console.log("answers ->", answers);
         } else {
             alert("Ohh bad luck! Good luck next time...");
 
-            dispatch(registerAnswers("False"));
+            console.log("answers ->", answers);
         }
+        dispatch(registerAnswers("True"));
 
         console.log("moving to the next question");
         console.log("questionIndex", questionIndex);
@@ -134,12 +123,13 @@ const Questions = () => {
             alert("Yayy well done! You got it right! Let's go =)");
             dispatch(changeScore(finalScore + 1));
 
-            dispatch(registerAnswers("False"));
+            console.log("answers ->", answers);
         }else{
             alert("Ohh bad luck! Good luck next time...");
 
-            dispatch(registerAnswers("True"));
+            console.log("answers ->", answers);
         }
+        dispatch(registerAnswers("False"));
 
         console.log("moving to the next question");
         console.log("questionIndex", questionIndex);
@@ -158,7 +148,7 @@ const Questions = () => {
     }
 
     
-    console.log(correctAns);
+    //console.log(correctAns);
 
 
     return (

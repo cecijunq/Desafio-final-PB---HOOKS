@@ -25,7 +25,9 @@ const ADD_ANSWER = {
 export const finalAns = ( state = ADD_ANSWER, action) => {
     switch(action.type) {
         case 'add_answer':
-            return{...state, answers: [...state.answers, action.answer]}
+            console.log("ACTION ->", action)
+            console.log("STATE =>", state); 
+            return{...state, answers: [...state.answers, action.payload.answers]}
         default:
             return{...state};
     }
