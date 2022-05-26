@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { changeScore, registerAnswers, changeMinutes, changeSeconds } from '../store/actions';
+// import Timer from "./Timer";
 
 import axios from "axios";
 
@@ -41,13 +42,6 @@ const Questions = () => {
     };
 
     useEffect(() => {
-
-        // axios.get("https://opentdb.com/api.php?amount=10&type=boolean").then(({data}) => {
-        //     setQuestions(data.results[0].question)
-        //     setCategory(data.results[0].category)
-        //     setDifficulty(data.results[0].difficulty)
-        //     setCorrectAns(data.results[0].correct_answer)
-        // });
         axiosData();
     }, [questionNumber]);
 
@@ -147,9 +141,6 @@ const Questions = () => {
 
     }
 
-    
-    //console.log(correctAns);
-
 
     return (
         <div className="screen">
@@ -157,11 +148,14 @@ const Questions = () => {
                 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
             </style>
 
+            {/* <Timer/> */}
+
             <div className="questions">
                 <div className="container">
                     <h2>Question: {questionNumber} / 10</h2>
                     <h3 className="score">Score: {score}</h3>
                 </div>
+               
 
                     
 
@@ -174,8 +168,9 @@ const Questions = () => {
                     <div className="btn_ans">
                         <button className="btn_Answer" id="btn_True" onClick={handleTrueAns}>True</button>
                         <button className="btn_Answer" id="btn_False" onClick={handleFalseAns}>False</button>
-                        <p>Timer: {minutesCounter}:{secondsCounter}</p>
+                        <p className="timer">Timer: {minutesCounter}:{secondsCounter}</p>
                     </div>
+                    
 
                 </div>
             </div>
