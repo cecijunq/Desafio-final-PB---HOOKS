@@ -79,6 +79,7 @@ const Questions = () => {
             dispatch(changeScore(finalScore + 1));
 
             console.log("answers ->", answers);
+
         } else {
             alert("Ohh bad luck! Good luck next time...");
 

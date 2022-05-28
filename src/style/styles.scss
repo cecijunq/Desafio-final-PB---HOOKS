@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     height: 100%;
-    margin: auto;
+    margin: 0 auto;
     padding: 2px;
     text-align: center;
     align-items: center;
@@ -11,7 +11,7 @@
 .screen {
     min-width: 100%;
     min-height: 100%;
-    background-image: url('../../imgs/background_img.jpg');
+    background-image: url('../../imgs/background_img2.jpg');
     position: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -32,7 +32,7 @@
 }
 
 .results {
-    margin-top: 70px;
+    margin-top: 5px;
 }
 
 .intro {
@@ -49,8 +49,17 @@
 }
 
 .btn_start:hover, .btn_Answer:hover, .btn_playAgain:hover {
+    transition: 0.5s;
     background-color: #af05b4;
     border: 1px solid #af05b4;
+    width: 120px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 32px;
+}
+
+.btn_playAgain:hover {
+    width: 190px;
 }
 
 .btn_Answer {
