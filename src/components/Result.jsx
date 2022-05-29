@@ -23,7 +23,7 @@ const Results = () => {
         dispatch(changeScore(0));
         dispatch(changeMinutes(0));
         dispatch(changeSeconds(0));
-        dispatch(registerAnswers([""]));
+        dispatch(registerAnswers([]));
         console.log("starting a new game");
         history.push('/');
         return;
@@ -52,8 +52,14 @@ const Results = () => {
 
                         <ol className="ans_numb">
 
-                            { answers.map((answer, index) => <li key={index}>{answer}</li>) }
-
+                            <div className="ans_part1">
+                                { answers.map((answer, index) => index >= 0 && index < 5 ? <li key={index}>{answer}</li> : console.log("ans part 1")) }
+                            </div>
+                            
+                            <div className="ans_part2">
+                                { answers.map((answer, index) => index >= 5 && index < 10 ? <li key={index}>{answer}</li> : console.log("ans part 1")) }
+                            </div>
+                            
                             
                         </ol>
                     </div>

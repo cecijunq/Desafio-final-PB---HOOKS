@@ -169,7 +169,7 @@ const Questions = () => {
                     <div className="btn_ans">
                         <button className="btn_Answer" id="btn_True" onClick={handleTrueAns}>True</button>
                         <button className="btn_Answer" id="btn_False" onClick={handleFalseAns}>False</button>
-                        <p className="timer">Timer: {minutesCounter}:{secondsCounter}</p>
+                        <p className="timer">Timer: {minutesCounter}:{secondsCounter < 10 ? 0 : ''}{secondsCounter}</p>
                     </div>
                     
 
