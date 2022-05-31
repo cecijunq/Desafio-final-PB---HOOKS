@@ -80,6 +80,7 @@ const Questions = () => {
 
             console.log("answers ->", answers);
 
+            
         } else {
             alert("Ohh bad luck! Good luck next time...");
 

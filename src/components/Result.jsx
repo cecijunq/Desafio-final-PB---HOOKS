@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { changeScore, registerAnswers, changeMinutes, changeSeconds } from '../store/actions';
+import { changeScore, registerAnswers, changeMinutes, changeSeconds, clearArray } from '../store/actions';
 
 import "../style/styles.scss";
 
@@ -23,6 +23,7 @@ const Results = () => {
         dispatch(changeScore(0));
         dispatch(changeMinutes(0));
         dispatch(changeSeconds(0));
+        //dispatch(clearArray());
         dispatch(registerAnswers([]));
         console.log("starting a new game");
         history.push('/');

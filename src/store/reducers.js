@@ -28,6 +28,8 @@ export const finalAns = ( state = ADD_ANSWER, action) => {
             console.log("ACTION ->", action)
             console.log("STATE =>", state); 
             return{...state, answers: [...state.answers, action.payload.answers]}
+        case 'clear_array':
+            return [];
         default:
             return{...state};
     }

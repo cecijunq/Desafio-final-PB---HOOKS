@@ -14,6 +14,10 @@ export const changeMinutes = (minutes) => {
 export const registerAnswers = (answers) => {
     return {type: 'add_answer', payload: {answers: answers}}
 }
+
+export const clearArray = (answers) => {
+    return {type: 'clear_array', payload: {answers: answers}}
+}
 //reduxtunk: possibilita que uma action seja disparada assincronamente
 
 //payload: é como se fosse um 'caminhãozinho' que guarda a variável que tá sendo alterada
