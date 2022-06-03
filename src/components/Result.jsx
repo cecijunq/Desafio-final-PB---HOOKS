@@ -20,13 +20,13 @@ const Results = () => {
 
 
     const handlePlayAgain = () => {
+        history.push('/');
         dispatch(changeScore(0));
         dispatch(changeMinutes(0));
         dispatch(changeSeconds(0));
-        //dispatch(clearArray());
+        dispatch(clearArray());
         dispatch(registerAnswers([]));
         console.log("starting a new game");
-        history.push('/');
         return;
     }
 
