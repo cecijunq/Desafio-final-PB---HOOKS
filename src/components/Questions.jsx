@@ -66,7 +66,6 @@ const Questions = () => {
 
 
     const handleTrueAns = () => {
-        dispatch(registerAnswers("True"));
         if(correctAns == 'True') {
             if(difficulty == 'hard') {
                 setScore(score + 3)
@@ -75,18 +74,19 @@ const Questions = () => {
             }else {
                 setScore(score + 1)
             }
-        
+            
             alert("Yayy well done! You got it right! Let's go =)");
             dispatch(changeScore(finalScore + 1));
-
+            
             console.log("answers ->", answers);
             
         } else {
             alert("Ohh bad luck! Good luck next time...");
-
+            
             console.log("answers ->", answers);
         }
-
+        
+        dispatch(registerAnswers("True"));
         console.log("moving to the next question");
         console.log("questionIndex", questionIndex);
         console.log("questionNumber", questionNumber);
@@ -102,7 +102,6 @@ const Questions = () => {
         setQuestIndex(questionIndex + 1)
 
     }
-
 
 
     const handleFalseAns = () => {
