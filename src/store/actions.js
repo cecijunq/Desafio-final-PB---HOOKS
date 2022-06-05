@@ -19,9 +19,13 @@ export const registerAnswers = (answers) => {
 //     return {type: 'clear_array', payload: {answers: [answers.map((answer, index) => [])]}}
 // }
 
-export const clearArray = (index) => {
-    return {type: 'clear_array', index}
+export const clearArray = (answers) => {
+    return {type: 'clear_array'}
 }
+
+// export const clearArray = (index) => {
+//     return {type: 'clear_array', index}
+// }
 
 //reduxtunk: possibilita que uma action seja disparada assincronamente
 

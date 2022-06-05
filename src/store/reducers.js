@@ -29,9 +29,9 @@ export const finalAns = ( state = ADD_ANSWER, action) => {
             console.log("STATE =>", state); 
             return{...state, answers: [...state.answers, action.payload.answers]}
         case 'clear_array':
-            // return {answers: [...state.answers.map((answer, index) => [])]};
-            let array = state;
-            return array.slice([]).concat(array.slice([]));
+            return {...state, answers: []};
+            //return {answers: [...state.answers.map((answer, index) => [])]};
+            
         default:
             return{...state};
     }

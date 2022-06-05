@@ -15,6 +15,7 @@ const Start = () => {
     return (
 
         <div className="screen">
+        
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
             </style>
