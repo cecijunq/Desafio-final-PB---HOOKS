@@ -15,15 +15,14 @@ export const registerAnswers = (answers) => {
     return {type: 'add_answer', payload: {answers: answers}}
 }
 
-export const clearArray = (answers) => {
-    return {type: 'clear_array', payload: {answers: [answers.map((answer, index) => [])]}}
+// export const clearArray = (answers) => {
+//     return {type: 'clear_array', payload: {answers: [answers.map((answer, index) => [])]}}
+// }
+
+export const clearArray = (index) => {
+    return {type: 'clear_array', index}
 }
 
-// export const mapDispatchToProps = (dispatch) => {
-//     return {
-//         onClearArray: () => (dispatch(clearArray))
-//     }
-// };
 //reduxtunk: possibilita que uma action seja disparada assincronamente
 
 //payload: é como se fosse um 'caminhãozinho' que guarda a variável que tá sendo alterada
