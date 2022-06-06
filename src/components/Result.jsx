@@ -26,7 +26,6 @@ const Results = () => {
         dispatch(changeSeconds(0));
         //dispatch(mapDispatchToProps());
         dispatch(clearArray());
-        dispatch(registerAnswers([]));
         console.log("starting a new game");
         return;
     }
@@ -55,11 +54,13 @@ const Results = () => {
                         <ol className="ans_numb">
 
                             <div className="ans_part1">
-                                { answers.map((answer, index) => index >= 0 && index < 5 ? <li key={index}>{answer}</li> : console.log("ans part 1")) }
+                                { answers.map((answer, index) => index >= 0 && index < 5 ? <li className={`${answer.correct === answer.answer
+ ? 'ans_correct' : 'ans_wrong'}`} key={index}>{answer.answer}</li> : console.log("ans part 1")) }
                             </div>
                             
                             <div className="ans_part2">
-                                { answers.map((answer, index) => index >= 5 && index < 10 ? <li key={index}>{answer}</li> : console.log("ans part 1")) }
+                                { answers.map((answer, index) => index >= 5 && index < 10 ? <li className={`${answer.correct === answer.answer
+ ? 'ans_correct' : 'ans_wrong'}`} key={index}>{answer.answer}</li> : console.log("ans part 1")) }
                             </div>
                             
                             

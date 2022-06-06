@@ -85,8 +85,14 @@ const Questions = () => {
             
             console.log("answers ->", answers);
         }
+
+
+        const answerPayload = { 
+            answer: "True",
+            correct: correctAns
+        }
         
-        dispatch(registerAnswers("True"));
+        dispatch(registerAnswers(answerPayload));
         console.log("moving to the next question");
         console.log("questionIndex", questionIndex);
         console.log("questionNumber", questionNumber);
@@ -102,6 +108,7 @@ const Questions = () => {
         setQuestIndex(questionIndex + 1)
 
     }
+
 
 
     const handleFalseAns = () => {
@@ -125,7 +132,13 @@ const Questions = () => {
 
             console.log("answers ->", answers);
         }
-        dispatch(registerAnswers("False"));
+
+        const answerPayload2 = { 
+            answer: "False",
+            correct: correctAns
+        }
+
+        dispatch(registerAnswers(answerPayload2));
 
         console.log("moving to the next question");
         console.log("questionIndex", questionIndex);
