@@ -30,8 +30,6 @@ export const finalAns = ( state = ADD_ANSWER, action) => {
             return{...state, answers: [...state.answers, action.payload.answers]}
         case 'clear_array':
             return {...state, answers: []};
-            //return {answers: [...state.answers.map((answer, index) => [])]};
-            
         default:
             return{...state};
     }

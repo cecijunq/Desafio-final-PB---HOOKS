@@ -32,7 +32,7 @@
 }
 
 .results {
-    margin-top: 5px;
+    margin-top: 70px;
 }
 
 .intro {
@@ -68,6 +68,7 @@
 
 .btn_playAgain {
     width: 160px;
+    margin-top: -20px;
 }
 
 .btn_start {
@@ -86,6 +87,7 @@
 }
 
 .score {
+    position: relative;
     font-size: 23px;
 }
 
@@ -97,6 +99,11 @@
     text-align: center;
     font-size: 25px;
     margin-top: -30px;
+}
+
+.info p {
+    margin-top: -8px;
+    margin-bottom: 18px;
 }
 
 // .ans_numb {
@@ -119,6 +126,7 @@
 .ans_numb {
     display: flex;
     justify-content: space-between;
+    margin-top: -15px;
     
 }
 
@@ -128,4 +136,34 @@
 
 .ans_wrong {
     color: #751d1d;
+}
+
+
+.timer_score {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.timer {
+    float: left;
+    margin-top: -80px;
+    margin-left: 260px;
+    font-size: 25px;
+    border: 1px solid #04116d;
+    background-color: #04116d;
+    width: 130px;
+    border-radius: 30px;
+}
+
+.timer:hover {
+    transition: 0.3s;
+    align-items: center;
+    width: 140px;
+    height: 48px;
+    font-size: 29px;
+    border: 1px solid #0e20aa;
+    background-color: #0e20aa;
 }

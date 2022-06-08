@@ -163,11 +163,12 @@ const Questions = () => {
                 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
             </style>
 
-            {/* <Timer/> */}
+            <p className="timer">Timer: {minutesCounter}:{secondsCounter < 10 ? 0 : ''}{secondsCounter}</p>
 
             <div className="questions">
                 <div className="container">
                     <h2>Question: {questionNumber} / 10</h2>
+                    <p className="timer">Timer: {minutesCounter}:{secondsCounter < 10 ? 0 : ''}{secondsCounter}</p>
                     <h3 className="score">Score: {score}</h3>
                 </div>
                
@@ -183,7 +184,7 @@ const Questions = () => {
                     <div className="btn_ans">
                         <button className="btn_Answer" id="btn_True" onClick={handleTrueAns}>True</button>
                         <button className="btn_Answer" id="btn_False" onClick={handleFalseAns}>False</button>
-                        <p className="timer">Timer: {minutesCounter}:{secondsCounter < 10 ? 0 : ''}{secondsCounter}</p>
+                        {/* <p className="timer">Timer: {minutesCounter}:{secondsCounter < 10 ? 0 : ''}{secondsCounter}</p> */}
                     </div>
                     
 

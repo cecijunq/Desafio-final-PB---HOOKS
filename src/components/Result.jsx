@@ -24,7 +24,6 @@ const Results = () => {
         dispatch(changeScore(0));
         dispatch(changeMinutes(0));
         dispatch(changeSeconds(0));
-        //dispatch(mapDispatchToProps());
         dispatch(clearArray());
         console.log("starting a new game");
         return;
