@@ -11,7 +11,7 @@ export const score = (state = INIT_STATE, action) => {
         case 'set_seconds':
             return{...state, seconds: action.payload.seconds}
         case 'set_minutes':
-            return{...state, seconds: action.payload.minutes}
+            return{...state, minutes: action.payload.minutes}
         default:
             return{...state};
     }

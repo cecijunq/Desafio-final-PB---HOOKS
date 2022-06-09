@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { changeScore, registerAnswers, changeMinutes, changeSeconds } from '../store/actions';
-// import Timer from "./Timer";
 
 import axios from "axios";
 
@@ -65,6 +64,7 @@ const Questions = () => {
     }, [secondsCounter, minutesCounter]);
 
 
+    //checking if the player that chose "true" got it right
     const handleTrueAns = () => {
         if(correctAns == 'True') {
             if(difficulty == 'hard') {
@@ -111,6 +111,7 @@ const Questions = () => {
 
 
 
+    //checking if the player that marked "false" got it right
     const handleFalseAns = () => {
         if(correctAns == 'False'){
             if(difficulty == 'hard') {
@@ -163,7 +164,6 @@ const Questions = () => {
                 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
             </style>
 
-            <p className="timer">Timer: {minutesCounter}:{secondsCounter < 10 ? 0 : ''}{secondsCounter}</p>
 
             <div className="questions">
                 <div className="container">
@@ -184,7 +184,6 @@ const Questions = () => {
                     <div className="btn_ans">
                         <button className="btn_Answer" id="btn_True" onClick={handleTrueAns}>True</button>
                         <button className="btn_Answer" id="btn_False" onClick={handleFalseAns}>False</button>
-                        {/* <p className="timer">Timer: {minutesCounter}:{secondsCounter < 10 ? 0 : ''}{secondsCounter}</p> */}
                     </div>
                     
 

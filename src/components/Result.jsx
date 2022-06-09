@@ -19,6 +19,7 @@ const Results = () => {
     const history = useHistory();
 
 
+    //what has to be done when clicking on the button to start the game again
     const handlePlayAgain = () => {
         history.push('/');
         dispatch(changeScore(0));
@@ -44,7 +45,7 @@ const Results = () => {
                     
                     <div className="info">
                         <p>You got {finalScore} questions right out of 10</p>
-                        <p>You took {minutes}:{seconds} to answer all the questions</p>
+                        <p>You took {minutes}:{seconds < 10 ? 0 : ''}{seconds} to answer all the questions</p>
                     </div>
 
                     <div className="ans_chosen">
