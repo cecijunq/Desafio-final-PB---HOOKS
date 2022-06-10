@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { changeScore, registerAnswers, changeMinutes, changeSeconds, clearArray, mapDispatchToProps } from '../store/actions';
+import { changeScore, changeMinutes, changeSeconds, clearArray } from '../store/actions';
 
 import "../style/styles.scss";
 
@@ -32,6 +32,7 @@ const Results = () => {
 
 
     console.log(answers);
+    console.log(minutes, seconds);
 
     return (
         <div className="screen">
