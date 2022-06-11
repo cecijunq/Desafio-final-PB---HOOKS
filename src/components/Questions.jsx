@@ -55,12 +55,13 @@ const Questions = () => {
 
 
     //setting the timer of minutes
+
     useEffect(() => {
         if(secondsCounter == 60) {
             setSecondsCounter(0);
             setMinutesCounter(minutesCounter + 1);
-            dispatch(changeMinutes(minutesCounter));
         }
+        dispatch(changeMinutes(minutesCounter));
     }, [secondsCounter, minutesCounter]);
 
 
